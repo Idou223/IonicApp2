@@ -35,7 +35,7 @@ export class PostComponent  implements OnInit {
     });
 }
 
-ngOnInit() {
+ngOnInit() { 
   this.loadPosts();
 }
 
