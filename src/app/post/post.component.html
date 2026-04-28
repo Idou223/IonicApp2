@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Posts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Bouton reload -->
+  <ion-button (click)="loadPosts()">Recharger les posts</ion-button>
+
+  <!-- Chargement -->
+  <p *ngIf="loading">Chargement...</p>
+
+  <!-- Erreur -->
+  <p *ngIf="error" style="color:red">{{ error }}</p>
+
+  <!-- Tableau -->
+  <table border="1" width="100%" *ngIf="posts.length">
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Contenu</th>
+      <th>Actions</th>
+    </tr>
+
+    <tr *ngFor="let post of posts">
+      <td>{{ post.id }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.body }}</td>
+      <td>
+        <button (click)="editPost(post)">Modifier</button>
+        <button (click)="deletePost(post.id)">Supprimer</button>
+      </td>
+    </tr>
+  </table>
+
+</ion-content>
